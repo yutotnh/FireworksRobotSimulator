@@ -1,0 +1,161 @@
+.cross_middle {
+  background-image: url("/picture/Field/Cross_Center.png");
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.cross_upper_middle {
+  background-image: url("/picture/Field/Cross_Top-Center.png");
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.cross_upper_left {
+  background-image: url("/picture/Field/Cross_Top-Left.png");
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.cross_upper_right {
+  background-image: url("/picture/Field/Cross_Top-Right.png");
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.cross_middle_left {
+  background-image: url("/picture/Field/Cross_Center-Left.png");
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.cross_middle_right {
+  background-image: url("/picture/Field/Cross_Center-Right.png");
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.cross_lower_middle {
+  background-image: url("/picture/Field/Cross_Bottom-Center.png");
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.cross_lower_left {
+  background-image: url("/picture/Field/Cross_Bottom-Left.png");
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.cross_lower_right {
+  background-image: url("/picture/Field/Cross_Bottom-Right.png");
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.row_number,
+.column_number {
+  font-size: 20px;
+  text-align: center;
+}
+
+.robot_up {
+  background-image: url("/picture/Robot/Robot-Up.png");
+  width: 40px;
+  height: 40px;
+  color: white;
+  padding-top: 6px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.robot_left {
+  background-image: url("/picture/Robot/Robot-Left.png");
+  width: 40px;
+  height: 40px;
+  color: white;
+  padding-top: 6px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.robot_down {
+  background-image: url("/picture/Robot/Robot-Down.png");
+  width: 40px;
+  height: 40px;
+  color: white;
+  padding-top: 6px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.robot_right {
+  background-image: url("/picture/Robot/Robot-Right.png");
+  width: 40px;
+  height: 40px;
+  color: white;
+  padding-top: 6px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.next_robot_up {
+  background-image: url("/picture/Robot/Robot-Up.png");
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+  width: 40px;
+  height: 40px;
+  color: white;
+  padding-top: 6px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.next_robot_left {
+  background-image: url("/picture/Robot/Robot-Left.png");
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+  width: 40px;
+  height: 40px;
+  color: white;
+  padding-top: 6px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.next_robot_down {
+  background-image: url("/picture/Robot/Robot-Down.png");
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+  width: 40px;
+  height: 40px;
+  color: white;
+  padding-top: 6px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.next_robot_right {
+  background-image: url("/picture/Robot/Robot-Right.png");
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+  width: 40px;
+  height: 40px;
+  color: white;
+  padding-top: 6px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.column_number {
+  font-size: 20px;
+  padding-top: 10px;
+}

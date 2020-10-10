@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/prot.js"></script>
+    <script type="module" src="js/Robot.js"></script>
+    <meta charset="utf-8" />
+    <title>花火ロボットシミュレーター</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="css/destyle.css" />
+    <link rel="stylesheet" type="text/css" href="css/prot.css" />
+  </head>
+
+  <body>
+    <form action="#">
+      <span id="turn">
+        <span id="turn-text">ターン</span>
+        <input
+          type="number"
+          min="0"
+          max="1000"
+          id="turn-value"
+          value="0"
+          onchange="drawField()"
+        />
+      </span>
+
+      <span id="field-height">
+        <span id="field-height-text">縦</span>
+        <input
+          type="number"
+          min="2"
+          max="100"
+          id="field-height-value"
+          onchange="drawField()"
+        />
+      </span>
+
+      <span id="field-width">
+        <span id="field-width-text">横</span>
+        <input
+          type="number"
+          min="2"
+          max="100"
+          id="field-width-value"
+          onchange="drawField()"
+        />
+      </span>
+
+      <span id="number-of-robots">
+        <span id="number-of-robots-text">台数</span>
+        <input
+          type="number"
+          id="number-of-robots-value"
+          min="2"
+          max="50"
+          value="10"
+        />
+      </span>
+      <input type="button" value="追加" onclick="addRobot();" /><br />
+      <input type="submit" id="update-button" value="更新" />
+
+      <input type="file" id="input-file" />
+    </form>
+
+    <div id="field-table"></div>
+
+    <script type="text/javascript">
+      let xhr = new XMLHttpRequest();
+
+      xhr.onload = () => {
+        let responseJson = JSON.parse(xhr.response);
+        document.getElementById("field-width-value").value =
+          responseJson.field_x;
+        document.getElementById("field-height-value").value =
+          responseJson.field_y;
+
+        drawField();
+      };
+
+      xhr.open("GET", "json/sample.json", true);
+      xhr.send();
+
+      const boll = [];
+      for (let i = 0; i < 10; i++) {
+        if (document.getElementById("ball" + i) == null) {
+          break;
+        }
+        boll.push(getElementById("ball" + i));
+        boll[i].onmousedown = function (event) {
+          console.log("Click:" + i);
+        };
+      }
+    </script>
+    <form>
+      <input type="submit" id="save-button" value="保存" />
+    </form>
+  </body>
+</html>
