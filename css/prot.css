@@ -67,92 +67,60 @@
   text-align: center;
 }
 
-.robot_up {
-  background-image: url("/picture/Robot/Robot-Up.png");
+.robot_up,
+.robot_left,
+.robot_down,
+.robot_right,
+.next_robot_up,
+.next_robot_left,
+.next_robot_down,
+.next_robot_right {
   width: 40px;
   height: 40px;
-  color: white;
+  color: gray;
   padding-top: 6px;
   font-size: 30px;
   text-align: center;
+}
+
+.next_robot_up,
+.next_robot_left,
+.next_robot_down,
+.next_robot_right {
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+}
+
+.robot_up {
+  background-image: url("/picture/Robot/Robot-Up.png");
 }
 
 .robot_left {
   background-image: url("/picture/Robot/Robot-Left.png");
-  width: 40px;
-  height: 40px;
-  color: white;
-  padding-top: 6px;
-  font-size: 30px;
-  text-align: center;
 }
 
 .robot_down {
   background-image: url("/picture/Robot/Robot-Down.png");
-  width: 40px;
-  height: 40px;
-  color: white;
-  padding-top: 6px;
-  font-size: 30px;
-  text-align: center;
 }
 
 .robot_right {
   background-image: url("/picture/Robot/Robot-Right.png");
-  width: 40px;
-  height: 40px;
-  color: white;
-  padding-top: 6px;
-  font-size: 30px;
-  text-align: center;
 }
 
 .next_robot_up {
   background-image: url("/picture/Robot/Robot-Up.png");
-  background-color: rgba(255, 255, 255, 0.8);
-  background-blend-mode: lighten;
-  width: 40px;
-  height: 40px;
-  color: white;
-  padding-top: 6px;
-  font-size: 30px;
-  text-align: center;
 }
 
 .next_robot_left {
   background-image: url("/picture/Robot/Robot-Left.png");
-  background-color: rgba(255, 255, 255, 0.8);
-  background-blend-mode: lighten;
-  width: 40px;
-  height: 40px;
-  color: white;
-  padding-top: 6px;
-  font-size: 30px;
-  text-align: center;
 }
 
 .next_robot_down {
   background-image: url("/picture/Robot/Robot-Down.png");
-  background-color: rgba(255, 255, 255, 0.8);
-  background-blend-mode: lighten;
-  width: 40px;
-  height: 40px;
-  color: white;
-  padding-top: 6px;
-  font-size: 30px;
-  text-align: center;
 }
 
 .next_robot_right {
   background-image: url("/picture/Robot/Robot-Right.png");
-  background-color: rgba(255, 255, 255, 0.8);
-  background-blend-mode: lighten;
-  width: 40px;
-  height: 40px;
-  color: white;
-  padding-top: 6px;
-  font-size: 30px;
-  text-align: center;
 }
 
 .column_number {

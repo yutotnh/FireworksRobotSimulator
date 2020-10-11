@@ -33,35 +33,6 @@
       "initialColor": "Blue",
       "move": ["Up", "Right", "Right", "Up", "Right", "Left", "Right"],
       "color": ["White", "Green", "Green", "Blue", "Red", "Red", "Green"]
-    },
-    {
-      "initialX": 15,
-      "initialY": 2,
-      "initialDirection": "Up",
-      "initialColor": "White",
-      "move": [],
-      "color": [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        "Blue"
-      ]
-    },
-    {
-      "initialX": 5,
-      "initialY": 5,
-      "initialDirection": "Up",
-      "initialColor": "White",
-      "move": [],
-      "color": []
     }
   ]
 }
