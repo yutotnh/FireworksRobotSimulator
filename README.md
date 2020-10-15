@@ -26,7 +26,7 @@
 
 ターン、縦、横に関しては直接値を操作することができます。
 
-![image-20201015223756897](C:\Users\yuto\OneDrive\Project\FireworksRobotSimulator\README.assets\image-20201015223756897.png)
+![image-20201015223756897](\README.assets\image-20201015223756897.png)
 
 ## 追加
 
@@ -34,11 +34,11 @@
 
 例のように半角数字,半角数字と入力すると指定した座標にロボットが追加されます。
 
-![image-20201015224429349](C:\Users\yuto\OneDrive\Project\FireworksRobotSimulator\README.assets\image-20201015224429349.png)
+![image-20201015224429349](\README.assets\image-20201015224429349.png)
 
 ## ロボットについて
 
-![image-20201015224924154](C:\Users\yuto\OneDrive\Project\FireworksRobotSimulator\README.assets\image-20201015224924154.png)
+![image-20201015224924154](\README.assets\image-20201015224924154.png)
 
 上はロボットの画像です。
 
@@ -48,7 +48,7 @@
 
 また、ロボットの隣にしたのような画像が配置されています。
 
-![image-20201015225047668](C:\Users\yuto\OneDrive\Project\FireworksRobotSimulator\README.assets\image-20201015225047668.png)
+![image-20201015225047668](\README.assets\image-20201015225047668.png)
 
 これは次のターンのロボットの位置を示しています。
 
@@ -58,7 +58,7 @@
 
 ロボットの画像を右クリックすると下のようなメニューが表示されます。
 
-![image-20201015232051715](C:\Users\yuto\OneDrive\Project\FireworksRobotSimulator\README.assets\image-20201015232051715.png)
+![image-20201015232051715](\README.assets\image-20201015232051715.png)
 
 このメニューの項目からロボットの色の変更、次の移動方向、削除、始めの向き、初期位置の変更を行えます。
 
@@ -66,7 +66,7 @@
 
 色をクリックすると下のような入力ダイアログが表示されます。
 
-![image-20201015230044710](C:\Users\yuto\OneDrive\Project\FireworksRobotSimulator\README.assets\image-20201015230044710.png)
+![image-20201015230044710](\README.assets\image-20201015230044710.png)
 
 この入力ダイアログにはRed, Green, Blue, BlackのようなCSSで直接指定可能な文字列や#F0F0F0や#1202A0などのカラーコードを指定可能です。
 
@@ -76,7 +76,7 @@
 
 クリック後、次のターンのロボットを示す画像がきちんと適応されているはずです。
 
-![image-20201015232113976](C:\Users\yuto\OneDrive\Project\FireworksRobotSimulator\README.assets\image-20201015232113976.png)
+![image-20201015232113976](\README.assets\image-20201015232113976.png)
 
 ### 削除
 
@@ -86,7 +86,7 @@
 
 再度現れることがないので注意して行ってください。どうしても戻したい場合は、保存前に戻りますが再度ファイルを読み込みなおしてください。
 
-![image-20201015231404567](C:\Users\yuto\OneDrive\Project\FireworksRobotSimulator\README.assets\image-20201015231404567.png)
+![image-20201015231404567](\README.assets\image-20201015231404567.png)
 
 ### 始めの向き
 
@@ -94,7 +94,7 @@
 
 始めの向きにポインターを乗せるとサブメニューが表示されるので設定したい向きをクリックしてください。
 
-![image-20201015232037315](C:\Users\yuto\OneDrive\Project\FireworksRobotSimulator\README.assets\image-20201015232037315.png)
+![image-20201015232037315](\README.assets\image-20201015232037315.png)
 
 ## 初期位置の変更
 
@@ -102,7 +102,7 @@
 
 追加ボタンの形式で、座標を入力してください。初期位置の変更が可能です。
 
-![image-20201015232219371](C:\Users\yuto\OneDrive\Project\FireworksRobotSimulator\README.assets\image-20201015232219371.png)
+![image-20201015232219371](\README.assets\image-20201015232219371.png)
 
 ## データの形式について
 
