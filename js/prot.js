@@ -67,7 +67,7 @@ class Robot {
     if (turn == 0) this._initialColor = color;
     else this._color[turn - 1] = color;
 
-    for (let i = 0; i < index; i++) {
+    for (let i = 0; i < turn - 1; i++) {
       if (this._color[i] == null) this._color[i] = "Black";
     }
   }
@@ -77,7 +77,6 @@ class Robot {
       return this._initialColor;
     } else {
       if (this._color[turn - 1] == null) {
-        console.log("NULL");
         if (turn - 1 == 0) this._color[turn - 1] = this._initialColor;
         else this._color[turn - 1] = this._color[turn - 2];
 
@@ -318,7 +317,7 @@ function setContextMenu() {
           text: "色",
           action: function () {
             let str = window.prompt(
-              "設定したい色を教えてください。(例：Red, Green, Blue,...)"
+              "設定したい色を教えてください。(例：Red, Green, Blue, #F0F0F0,...)"
             );
             if (str.length != 0) robot[i].setColor(turn, str);
             drawField();
@@ -361,13 +360,15 @@ function setContextMenu() {
         {
           text: "削除",
           action: function () {
-            robot.splice(i, 1);
-            console.log("削除: %d", i);
-            drawField();
+            if (window.confirm("ロボット" + i + "を本当に削除しますか？")) {
+              robot.splice(i, 1);
+              console.log("削除: %d", i);
+              drawField();
+            }
           },
         },
         {
-          text: "向き",
+          text: "始めの向き",
           action: function () {},
           subMenu: [
             {
@@ -459,7 +460,7 @@ function addRobot() {
     let inputY = Number(str[1]);
     if (1 <= inputX && inputX <= width && 1 <= inputY && inputY <= height) {
       if (robotExists(turn, inputX, inputY) == -1) {
-        robot[robot.length] = new Robot(inputX, inputY, "Up", "White");
+        robot[robot.length] = new Robot(inputX, inputY, "Up", "Black");
         drawField();
       }
     }
@@ -547,17 +548,17 @@ function saveJSON() {
   link.click();
 }
 
-function readJSON(path) {
-  let xhr = new XMLHttpRequest();
+// function readJSON(path) {
+//   let xhr = new XMLHttpRequest();
 
-  xhr.onload = () => {
-    robot = analysisJSON(xhr.response);
-  };
-  xhr.open("GET", path, true);
-  xhr.send();
+//   xhr.onload = () => {
+//     robot = analysisJSON(xhr.response);
+//   };
+//   xhr.open("GET", path, true);
+//   xhr.send();
 
-  return robot;
-}
+//   return robot;
+// }
 
 function analysisJSON(file) {
   file = JSON.parse(file);

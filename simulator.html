@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/prot.js"></script>
     <script type="text/javascript" src="js/context-menu.js"></script>
     <meta charset="utf-8" />
     <title>花火ロボットシミュレーター</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
     <link rel="stylesheet" type="text/css" href="css/destyle.css" />
     <link rel="stylesheet" type="text/css" href="css/prot.css" />
     <link rel="stylesheet" type="text/css" href="css/form.css" />
@@ -68,7 +67,7 @@
         保存
         <input
           type="submit"
-          id="btn-flat"
+          id="save-json"
           class="btn-border"
           onclick="saveJSON();"
           value="保存"
@@ -81,10 +80,8 @@
       let turn, width, height;
       let contextMenuObj = [];
       let robot = [];
-      readJSON("json/default.json");
-      document.getElementById("input-file-form").click();
-      console.log("click");
 
+      drawField();
       const inputElement = document.getElementById("input-file");
       inputElement.addEventListener("change", handleFiles, false);
     </script>

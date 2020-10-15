@@ -13,39 +13,39 @@
 }
 
 .cross_middle {
-  background-image: url("/picture/Field/Cross_Center.png");
+  background-image: url("../picture/Field/Cross_Center.png");
 }
 
 .cross_upper_middle {
-  background-image: url("/picture/Field/Cross_Top-Center.png");
+  background-image: url("../picture/Field/Cross_Top-Center.png");
 }
 
 .cross_upper_left {
-  background-image: url("/picture/Field/Cross_Top-Left.png");
+  background-image: url("../picture/Field/Cross_Top-Left.png");
 }
 
 .cross_upper_right {
-  background-image: url("/picture/Field/Cross_Top-Right.png");
+  background-image: url("../picture/Field/Cross_Top-Right.png");
 }
 
 .cross_middle_left {
-  background-image: url("/picture/Field/Cross_Center-Left.png");
+  background-image: url("../picture/Field/Cross_Center-Left.png");
 }
 
 .cross_middle_right {
-  background-image: url("/picture/Field/Cross_Center-Right.png");
+  background-image: url("../picture/Field/Cross_Center-Right.png");
 }
 
 .cross_lower_middle {
-  background-image: url("/picture/Field/Cross_Bottom-Center.png");
+  background-image: url("../picture/Field/Cross_Bottom-Center.png");
 }
 
 .cross_lower_left {
-  background-image: url("/picture/Field/Cross_Bottom-Left.png");
+  background-image: url("../picture/Field/Cross_Bottom-Left.png");
 }
 
 .cross_lower_right {
-  background-image: url("/picture/Field/Cross_Bottom-Right.png");
+  background-image: url("../picture/Field/Cross_Bottom-Right.png");
 }
 
 .row_number,
@@ -79,35 +79,35 @@
 }
 
 .robot_up {
-  background-image: url("/picture/Robot/Robot-Up.png");
+  background-image: url("../picture/Robot/Robot-Up.png");
 }
 
 .robot_left {
-  background-image: url("/picture/Robot/Robot-Left.png");
+  background-image: url("../picture/Robot/Robot-Left.png");
 }
 
 .robot_down {
-  background-image: url("/picture/Robot/Robot-Down.png");
+  background-image: url("../picture/Robot/Robot-Down.png");
 }
 
 .robot_right {
-  background-image: url("/picture/Robot/Robot-Right.png");
+  background-image: url("../picture/Robot/Robot-Right.png");
 }
 
 .next_robot_up {
-  background-image: url("/picture/Robot/Robot-Up.png");
+  background-image: url("../picture/Robot/Robot-Up.png");
 }
 
 .next_robot_left {
-  background-image: url("/picture/Robot/Robot-Left.png");
+  background-image: url("../picture/Robot/Robot-Left.png");
 }
 
 .next_robot_down {
-  background-image: url("/picture/Robot/Robot-Down.png");
+  background-image: url("../picture/Robot/Robot-Down.png");
 }
 
 .next_robot_right {
-  background-image: url("/picture/Robot/Robot-Right.png");
+  background-image: url("../picture/Robot/Robot-Right.png");
 }
 
 .column_number {
