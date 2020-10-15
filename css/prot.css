@@ -1,64 +1,51 @@
-.cross_middle {
-  background-image: url("/picture/Field/Cross_Center.png");
+.cross_middle,
+.cross_upper_middle,
+.cross_upper_left,
+.cross_upper_right,
+.cross_middle_left,
+.cross_middle_right,
+.cross_lower_middle,
+.cross_lower_left,
+.cross_lower_right {
   width: 40px;
   height: 40px;
   text-align: center;
+}
+
+.cross_middle {
+  background-image: url("/picture/Field/Cross_Center.png");
 }
 
 .cross_upper_middle {
   background-image: url("/picture/Field/Cross_Top-Center.png");
-  width: 40px;
-  height: 40px;
-  text-align: center;
 }
 
 .cross_upper_left {
   background-image: url("/picture/Field/Cross_Top-Left.png");
-  width: 40px;
-  height: 40px;
-  text-align: center;
 }
 
 .cross_upper_right {
   background-image: url("/picture/Field/Cross_Top-Right.png");
-  width: 40px;
-  height: 40px;
-  text-align: center;
 }
 
 .cross_middle_left {
   background-image: url("/picture/Field/Cross_Center-Left.png");
-  width: 40px;
-  height: 40px;
-  text-align: center;
 }
 
 .cross_middle_right {
   background-image: url("/picture/Field/Cross_Center-Right.png");
-  width: 40px;
-  height: 40px;
-  text-align: center;
 }
 
 .cross_lower_middle {
   background-image: url("/picture/Field/Cross_Bottom-Center.png");
-  width: 40px;
-  height: 40px;
-  text-align: center;
 }
 
 .cross_lower_left {
   background-image: url("/picture/Field/Cross_Bottom-Left.png");
-  width: 40px;
-  height: 40px;
-  text-align: center;
 }
 
 .cross_lower_right {
   background-image: url("/picture/Field/Cross_Bottom-Right.png");
-  width: 40px;
-  height: 40px;
-  text-align: center;
 }
 
 .row_number,
@@ -77,7 +64,7 @@
 .next_robot_right {
   width: 40px;
   height: 40px;
-  color: gray;
+  color: #c0c0c0;
   padding-top: 6px;
   font-size: 30px;
   text-align: center;

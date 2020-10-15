@@ -1,0 +1,19 @@
+label input {
+  display: none;
+}
+
+.btn-flat {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  color: #00bcd4;
+  background: #ececec;
+  transition: 0.4s;
+}
+
+.btn-flat:hover {
+  background: #00bcd4;
+  color: white;
+}
