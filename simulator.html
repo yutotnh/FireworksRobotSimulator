@@ -66,15 +66,18 @@
       <label class="btn btn-flat">
         保存
         <input
-          type="submit"
+          type="button"
           id="save-json"
           class="btn-border"
           onclick="saveJSON();"
           value="保存"
-      /></label>
+        />
+      </label>
     </form>
 
     <div id="field-table"></div>
+
+    <canvas id="my-canvas" width="1" height="1"></canvas>
 
     <script type="text/javascript">
       let turn, width, height;
@@ -84,6 +87,8 @@
       drawField();
       const inputElement = document.getElementById("input-file");
       inputElement.addEventListener("change", handleFiles, false);
+
+      color2html([127, 2, 0]);
     </script>
   </body>
 </html>

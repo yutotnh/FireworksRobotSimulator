@@ -152,7 +152,6 @@ class Robot {
       case "Stay":
         return 0;
       case null:
-        console.log("null");
         return 0;
       default:
         return -1;
@@ -172,7 +171,6 @@ class Robot {
       case 0:
         return "Stay";
       case null:
-        console.log("null");
         return "Stay";
       default:
         return -1;
@@ -474,7 +472,6 @@ function changeRobotPlace(number) {
   if (str.length == 2) {
     let inputX = Number(str[0]);
     let inputY = Number(str[1]);
-    console.log(inputX + inputY);
 
     if (1 <= inputX && inputX <= width && 1 <= inputY && inputY <= height) {
       if (robotExists(turn, inputX, inputY) == -1) {
@@ -517,7 +514,7 @@ function saveJSON() {
     originalData.robot[i].initialX = robot[i].initialPositionX;
     originalData.robot[i].initialY = robot[i].initialPositionY;
     originalData.robot[i].initialDirection = robot[i].initialDirection;
-    originalData.robot[i].initialColor = robot[i].initialColor;
+    originalData.robot[i].initialColor = html2color(robot[i].initialColor);
     let move = robot[i].move;
     for (let i = 0; i < move.length; i++) {
       if (move[i] == null) move[i] = "Black";
@@ -528,6 +525,7 @@ function saveJSON() {
 
     for (let i = 0; i < color.length; i++) {
       if (color[i] == null) color[i] = "Black";
+      color[i] = html2color(color[i]);
     }
     originalData.robot[i].color = color;
   }
@@ -546,19 +544,8 @@ function saveJSON() {
 
   // ファイルを保存する。
   link.click();
+  link.remove();
 }
-
-// function readJSON(path) {
-//   let xhr = new XMLHttpRequest();
-
-//   xhr.onload = () => {
-//     robot = analysisJSON(xhr.response);
-//   };
-//   xhr.open("GET", path, true);
-//   xhr.send();
-
-//   return robot;
-// }
 
 function analysisJSON(file) {
   file = JSON.parse(file);
@@ -575,10 +562,14 @@ function analysisJSON(file) {
       file.robot[i].initialX,
       file.robot[i].initialY,
       file.robot[i].initialDirection,
-      file.robot[i].initialColor
+      color2html(file.robot[i].initialColor)
     );
     robot[i].move = file.robot[i].move;
-    robot[i].color = file.robot[i].color;
+    let color = [];
+    for (let j = 0; j < file.robot[i].color.length; j++) {
+      color[j] = color2html(file.robot[i].color[j]);
+    }
+    robot[i].color = color;
   }
   drawField();
 
@@ -599,4 +590,36 @@ function handleFiles() {
   };
 
   return robot;
+}
+
+function html2color(str) {
+  var canvas = document.getElementById("my-canvas");
+  var ctx = canvas.getContext("2d");
+  ctx.fillStyle = str;
+  ctx.strokeStyle = str;
+  ctx.rect(0, 0, 1, 1);
+  ctx.fill();
+  ctx.stroke();
+  var imagedata = ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+  var r = imagedata.data[0]; //. R(0-255)
+  var g = imagedata.data[1]; //. G(0-255)
+  var b = imagedata.data[2]; //. B(0-255)
+  var a = imagedata.data[3]; //. 輝度(0-255)
+
+  return [r, g, b];
+}
+
+function color2html(color) {
+  let r = color[0].toString(16);
+  if (r.length == 1) r = "0" + color[0].toString(16);
+
+  let g = color[1].toString(16);
+  if (g.length == 1) g = "0" + color[1].toString(16);
+
+  let b = color[2].toString(16);
+  if (b.length == 1) b = "0" + color[2].toString(16);
+  console.log("#" + r + g + b);
+
+  return "#" + r + g + b;
 }
