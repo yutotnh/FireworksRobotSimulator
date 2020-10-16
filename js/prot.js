@@ -2,7 +2,6 @@ class Robot {
   constructor(x, y, direction, color) {
     this._initialPosition = [Number(x), Number(y)];
     this._initialDirection = direction;
-    this._initialColor = color;
     this._move = [];
     this._color = [];
   }
@@ -21,10 +20,6 @@ class Robot {
 
   set initialPositionY(value) {
     this._initialPosition[1] = value;
-  }
-
-  get initialColor() {
-    return this._initialColor;
   }
 
   get initialDirection() {
@@ -64,26 +59,22 @@ class Robot {
   }
 
   setColor(turn, color) {
-    if (turn == 0) this._initialColor = color;
-    else this._color[turn - 1] = color;
+    color = html2color(color);
+    color = color2html(color);
+    console.log(color);
+    this._color[turn] = color;
 
-    for (let i = 0; i < turn - 1; i++) {
+    for (let i = 0; i < turn; i++) {
       if (this._color[i] == null) this._color[i] = "Black";
     }
   }
 
   getColor(turn) {
-    if (turn == 0) {
-      return this._initialColor;
+    if (this._color[turn] == null && turn != 0) {
+      this._color[turn] = this._color[turn - 1];
+      return this._color[turn];
     } else {
-      if (this._color[turn - 1] == null) {
-        if (turn - 1 == 0) this._color[turn - 1] = this._initialColor;
-        else this._color[turn - 1] = this._color[turn - 2];
-
-        return this._color[turn - 1];
-      } else {
-        return this._color[turn - 1];
-      }
+      return this._color[turn];
     }
   }
 
@@ -514,7 +505,6 @@ function saveJSON() {
     originalData.robot[i].initialX = robot[i].initialPositionX;
     originalData.robot[i].initialY = robot[i].initialPositionY;
     originalData.robot[i].initialDirection = robot[i].initialDirection;
-    originalData.robot[i].initialColor = html2color(robot[i].initialColor);
     let move = robot[i].move;
     for (let i = 0; i < move.length; i++) {
       if (move[i] == null) move[i] = "Black";
@@ -527,6 +517,9 @@ function saveJSON() {
       if (color[i] == null) color[i] = "Black";
       color[i] = html2color(color[i]);
     }
+
+    console.log(color);
+
     originalData.robot[i].color = color;
   }
 
@@ -562,7 +555,7 @@ function analysisJSON(file) {
       file.robot[i].initialX,
       file.robot[i].initialY,
       file.robot[i].initialDirection,
-      color2html(file.robot[i].initialColor)
+      color2html(file.robot[i].color[0])
     );
     robot[i].move = file.robot[i].move;
     let color = [];
