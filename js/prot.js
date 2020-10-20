@@ -1,9 +1,18 @@
 class Robot {
-  constructor(x, y, direction, color) {
+  constructor(number, x, y, direction) {
+    this._number = number;
     this._initialPosition = [Number(x), Number(y)];
     this._initialDirection = direction;
     this._move = [];
-    this._color = [];
+    this._color = ["Black"];
+  }
+
+  get number() {
+    return this._number;
+  }
+
+  set number(value) {
+    this._number = value;
   }
 
   get initialPositionX() {
@@ -178,26 +187,26 @@ function createTable() {
     let tr = document.createElement("tr");
     for (let j = 0; j <= width; j++) {
       if (robotExists(turn, j, i) != -1) {
-        let robotNumber = robotExists(turn, j, i);
-        let direction = robot[robotNumber].direction(turn).toLowerCase();
+        let index = robotExists(turn, j, i);
+        let direction = robot[index].direction(turn).toLowerCase();
         let td = document.createElement("td");
         td.className = "robot_" + direction;
-        let id = "robot" + robotNumber;
+        let id = "robot" + index;
         td.id = id;
-        td.innerHTML = robotNumber;
-        td.style.backgroundColor = robot[robotNumber].getColor(turn);
-        robotNumber++;
+        td.innerHTML = robot[index].number;
+        td.style.backgroundColor = robot[index].getColor(turn);
+        index++;
         tr.appendChild(td);
       } else if (robotExists(turn + 1, j, i) != -1) {
-        let robotNumber = robotExists(turn + 1, j, i);
-        let direction = robot[robotNumber].direction(turn + 1).toLowerCase();
+        let index = robotExists(turn + 1, j, i);
+        let direction = robot[index].direction(turn + 1).toLowerCase();
         let td = document.createElement("td");
         td.className = "next_robot_" + direction;
-        let id = "next_robot" + robotNumber;
+        let id = "next_robot" + index;
         td.id = id;
-        td.innerHTML = robotNumber;
+        td.innerHTML = robot[index].number;
         // td.style.backgroundColor = robot[robotNumber].getColor(turn + 1);
-        robotNumber++;
+        index++;
         tr.appendChild(td);
       } else if (i == 0) {
         // 1行目のtr要素の時
@@ -349,9 +358,13 @@ function setContextMenu() {
         {
           text: "削除",
           action: function () {
-            if (window.confirm("ロボット" + i + "を本当に削除しますか？")) {
+            if (
+              window.confirm(
+                "ロボット" + robot[i].number + "を本当に削除しますか？"
+              )
+            ) {
               robot.splice(i, 1);
-              console.log("削除: %d", i);
+              console.log("削除: %d", robot[i].number);
               drawField();
             }
           },
@@ -406,6 +419,23 @@ function setContextMenu() {
             drawField();
           },
         },
+        {
+          text: "番号",
+          action: function () {
+            let str = window.prompt("設定したい番号を教えてください。");
+            if (Number(str)) {
+              let prevNumber = robot[i].number;
+              robot[i].number = Number(str);
+              for (let j = 0; j < robot.length; j++) {
+                if (i != j) {
+                  if (Number(str) == robot[j].number)
+                    robot[i].number = prevNumber;
+                }
+              }
+            }
+            drawField();
+          },
+        },
       ],
     });
   }
@@ -422,7 +452,7 @@ function setContextMenu() {
   //         {
   //           text: "追加",
   //           action: function () {
-  //             robot[robot.length] = new Robot(j, i, "Up", "White");
+  //             robot[robot.length] = new Robot(j, i, "Up");
   //             drawField();
   //           },
   //         },
@@ -449,7 +479,22 @@ function addRobot() {
     let inputY = Number(str[1]);
     if (1 <= inputX && inputX <= width && 1 <= inputY && inputY <= height) {
       if (robotExists(turn, inputX, inputY) == -1) {
-        robot[robot.length] = new Robot(inputX, inputY, "Up", "Black");
+        let number_array = [];
+        robot.forEach((element) => {
+          number_array.push(element.number);
+        });
+
+        number_array = number_array.sort(function (a, b) {
+          return a < b ? -1 : 1;
+        });
+
+        console.log(number_array);
+
+        let number = 1;
+        number_array.forEach((element) => {
+          if (number == element) number++;
+        });
+        robot[robot.length] = new Robot(number, inputX, inputY, "Up");
         drawField();
       }
     }
@@ -502,6 +547,7 @@ function saveJSON() {
 
   for (let i = 0; i < robot.length; i++) {
     originalData.robot[i] = {};
+    originalData.robot[i].number = robot[i].number;
     originalData.robot[i].initialX = robot[i].initialPositionX;
     originalData.robot[i].initialY = robot[i].initialPositionY;
     originalData.robot[i].initialDirection = robot[i].initialDirection;
@@ -552,10 +598,10 @@ function analysisJSON(file) {
 
   for (let i = 0; i < file.robot.length; i++) {
     robot[i] = new Robot(
+      file.robot[i].number,
       file.robot[i].initialX,
       file.robot[i].initialY,
-      file.robot[i].initialDirection,
-      color2html(file.robot[i].color[0])
+      file.robot[i].initialDirection
     );
     robot[i].move = file.robot[i].move;
     let color = [];
