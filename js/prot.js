@@ -557,11 +557,11 @@ function saveJSON() {
     }
     originalData.robot[i].move = move;
 
-    let color = robot[i].color;
+    let color = [];
 
-    for (let i = 0; i < color.length; i++) {
-      if (color[i] == null) color[i] = "Black";
-      color[i] = html2color(color[i]);
+    for (let j = 0; j < robot[i].color.length; j++) {
+      if (robot[i].color[j] == null) color[j] = "Black";
+      color[j] = html2color(robot[i].color[j]);
     }
 
     console.log(color);
