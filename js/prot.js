@@ -553,7 +553,7 @@ function saveJSON() {
     originalData.robot[i].initialDirection = robot[i].initialDirection;
     let move = robot[i].move;
     for (let i = 0; i < move.length; i++) {
-      if (move[i] == null) move[i] = "Black";
+      if (move[i] == null) move[i] = "Stay";
     }
     originalData.robot[i].move = move;
 
