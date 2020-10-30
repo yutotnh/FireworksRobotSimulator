@@ -382,6 +382,13 @@ function setContextMenu() {
                 drawField();
               },
             },
+            {
+              text: "停止",
+              action: function () {
+                robot[i].setMove(turn, "Stay");
+                drawField();
+              },
+            },
           ],
         },
         {
