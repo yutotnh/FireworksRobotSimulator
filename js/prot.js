@@ -59,6 +59,11 @@ class Robot {
     this._color = array;
   }
 
+  getMove(index) {
+    console.log(this._move[index]);
+    return this._move[index];
+  }
+
   setMove(index, move) {
     this._move[index] = move;
 
@@ -298,6 +303,30 @@ function drawField() {
     height = document.getElementById("field-height-value").value = 2;
   } else if (height > 100) {
     height = document.getElementById("field-height-value").value = 100;
+  }
+
+  for (let i = 0; i < robot.length; i++) {
+    if (turn == 0) {
+      break;
+    }
+
+    if (turn == 1) {
+      if (
+        robot[i].getMove(turn) == null ||
+        robot[i].getMove(turn) == undefined
+      ) {
+        console.log(robot[i].getMove(turn));
+        robot[i].setMove(turn, robot[i].initialDirection);
+      }
+    } else {
+      if (
+        robot[i].getMove(turn) == null ||
+        robot[i].getMove(turn) == undefined
+      ) {
+        console.log(robot[i].getMove(turn));
+        robot[i].setMove(turn, robot[i].getMove(turn - 1));
+      }
+    }
   }
 
   createTable();
