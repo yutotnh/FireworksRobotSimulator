@@ -60,7 +60,6 @@ class Robot {
   }
 
   getMove(index) {
-    console.log(this._move[index]);
     return this._move[index];
   }
 
