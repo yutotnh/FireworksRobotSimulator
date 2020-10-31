@@ -506,7 +506,7 @@ function robotExists(turn, x, y) {
     if (position[0] == x && position[1] == y) exists.push(i);
   }
 
-  if (exists.length == 1) return exists[1];
+  if (exists.length == 1) return exists[0];
   else if (exists.length == 0) return -1;
   else {
     let str = "";
