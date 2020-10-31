@@ -192,6 +192,7 @@ function createTable() {
     for (let j = 0; j <= width; j++) {
       if (robotExists(turn, j, i) != -1) {
         let index = robotExists(turn, j, i);
+        console.log("index: %d", index);
         let direction = robot[index].direction(turn).toLowerCase();
         let td = document.createElement("td");
         td.className = "robot_" + direction;
@@ -203,6 +204,7 @@ function createTable() {
         tr.appendChild(td);
       } else if (robotExists(turn + 1, j, i) != -1) {
         let index = robotExists(turn + 1, j, i);
+        console.log("index: %d", index);
         let direction = robot[index].direction(turn + 1).toLowerCase();
         let td = document.createElement("td");
         td.className = "next_robot_" + direction;
@@ -504,7 +506,7 @@ function robotExists(turn, x, y) {
     if (position[0] == x && position[1] == y) exists.push(i);
   }
 
-  if (exists.length == 1) return i;
+  if (exists.length == 1) return exists[0];
   else if (exists.length == 0) return -1;
   else {
     let str = "";
@@ -513,6 +515,7 @@ function robotExists(turn, x, y) {
     }
     str += "が衝突しました";
     alert(str);
+    return exists[0];
   }
 }
 
@@ -704,7 +707,7 @@ function color2html(color) {
 
   let b = color[2].toString(16);
   if (b.length == 1) b = "0" + color[2].toString(16);
-  console.log("#" + r + g + b);
+  // console.log("#" + r + g + b);
 
   return "#" + r + g + b;
 }
