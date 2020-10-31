@@ -498,11 +498,22 @@ function setContextMenu() {
 }
 
 function robotExists(turn, x, y) {
+  let exists = [];
   for (let i = 0; i < robot.length; i++) {
     let position = robot[i].position(turn);
-    if (position[0] == x && position[1] == y) return i;
+    if (position[0] == x && position[1] == y) exists.push(i);
   }
-  return -1;
+
+  if (exists.length == 1) return i;
+  else if (exists.length == 0) return -1;
+  else {
+    let str = "";
+    for (let i = 0; exists.length; i++) {
+      str += exists[i] + ", ";
+    }
+    str += "が衝突しました";
+    alert(str);
+  }
 }
 
 function addRobot() {
