@@ -74,7 +74,6 @@ class Robot {
   setColor(turn, color) {
     color = html2color(color);
     color = color2html(color);
-    console.log(color);
     this._color[turn] = color;
 
     for (let i = 0; i < turn; i++) {
@@ -192,7 +191,6 @@ function createTable() {
     for (let j = 0; j <= width; j++) {
       if (robotExists(turn, j, i) != -1) {
         let index = robotExists(turn, j, i);
-        console.log("index: %d", index);
         let direction = robot[index].direction(turn).toLowerCase();
         let td = document.createElement("td");
         td.className = "robot_" + direction;
@@ -204,7 +202,6 @@ function createTable() {
         tr.appendChild(td);
       } else if (robotExists(turn + 1, j, i) != -1) {
         let index = robotExists(turn + 1, j, i);
-        console.log("index: %d", index);
         let direction = robot[index].direction(turn + 1).toLowerCase();
         let td = document.createElement("td");
         td.className = "next_robot_" + direction;
@@ -275,9 +272,12 @@ function createTable() {
     table.appendChild(tr);
   }
   document.getElementById("field-table").appendChild(table);
+
   console.log(robot);
 
   setContextMenu();
+
+  // collision_check();
 }
 
 function drawField() {
@@ -316,7 +316,6 @@ function drawField() {
         robot[i].getMove(turn) == null ||
         robot[i].getMove(turn) == undefined
       ) {
-        console.log(robot[i].getMove(turn));
         robot[i].setMove(turn, robot[i].initialDirection);
       }
     } else {
@@ -324,7 +323,6 @@ function drawField() {
         robot[i].getMove(turn) == null ||
         robot[i].getMove(turn) == undefined
       ) {
-        console.log(robot[i].getMove(turn));
         robot[i].setMove(turn, robot[i].getMove(turn - 1));
       }
     }
@@ -499,6 +497,24 @@ function setContextMenu() {
   // }
 }
 
+function collision_check() {
+  console.log("衝突検知開始");
+  for (let turn = 1; turn <= 60; turn++) {
+    for (let x = 1; x <= 13; x++) {
+      for (let y = 1; y <= 12; y++) {
+        let prev = robotExists(turn - 1, x, y);
+        let current = robotExists(turn, x, y);
+
+        if (prev != -1 && current != -1) {
+          if (prev != current) {
+            console.log("衝突の可能性あり: turn %d, x:%d, y:%d", turn, x, y);
+          }
+        }
+      }
+    }
+  }
+}
+
 function robotExists(turn, x, y) {
   let exists = [];
   for (let i = 0; i < robot.length; i++) {
@@ -510,7 +526,7 @@ function robotExists(turn, x, y) {
   else if (exists.length == 0) return -1;
   else {
     let str = "";
-    for (let i = 0; exists.length; i++) {
+    for (let i = 0; i <= exists.length; i++) {
       str += exists[i] + ", ";
     }
     str += "が衝突しました";
@@ -536,8 +552,6 @@ function addRobot() {
         number_array = number_array.sort(function (a, b) {
           return a < b ? -1 : 1;
         });
-
-        console.log(number_array);
 
         let number = 1;
         number_array.forEach((element) => {
@@ -586,13 +600,13 @@ function directionToNumber(direction) {
 
 function saveJSON() {
   // originalDataに，種々のデータが格納されているとする。次は一例。
-  originalData = {
+  let originalData = {
     field_x: width,
     field_y: height,
     robot: [],
   };
 
-  console.log(originalData);
+  // console.log(originalData);
 
   for (let i = 0; i < robot.length; i++) {
     originalData.robot[i] = {};
@@ -612,8 +626,6 @@ function saveJSON() {
       if (robot[i].color[j] == null) color[j] = "Black";
       color[j] = html2color(robot[i].color[j]);
     }
-
-    console.log(color);
 
     originalData.robot[i].color = color;
   }
@@ -707,7 +719,6 @@ function color2html(color) {
 
   let b = color[2].toString(16);
   if (b.length == 1) b = "0" + color[2].toString(16);
-  // console.log("#" + r + g + b);
 
   return "#" + r + g + b;
 }
