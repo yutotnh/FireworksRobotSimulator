@@ -1,0 +1,116 @@
+.cross_middle,
+.cross_upper_middle,
+.cross_upper_left,
+.cross_upper_right,
+.cross_middle_left,
+.cross_middle_right,
+.cross_lower_middle,
+.cross_lower_left,
+.cross_lower_right {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.cross_middle {
+  background-image: url("../picture/Field/Cross_Center.png");
+}
+
+.cross_upper_middle {
+  background-image: url("../picture/Field/Cross_Top-Center.png");
+}
+
+.cross_upper_left {
+  background-image: url("../picture/Field/Cross_Top-Left.png");
+}
+
+.cross_upper_right {
+  background-image: url("../picture/Field/Cross_Top-Right.png");
+}
+
+.cross_middle_left {
+  background-image: url("../picture/Field/Cross_Center-Left.png");
+}
+
+.cross_middle_right {
+  background-image: url("../picture/Field/Cross_Center-Right.png");
+}
+
+.cross_lower_middle {
+  background-image: url("../picture/Field/Cross_Bottom-Center.png");
+}
+
+.cross_lower_left {
+  background-image: url("../picture/Field/Cross_Bottom-Left.png");
+}
+
+.cross_lower_right {
+  background-image: url("../picture/Field/Cross_Bottom-Right.png");
+}
+
+.row_number,
+.column_number {
+  font-size: 20px;
+  text-align: center;
+}
+
+.robot_up,
+.robot_left,
+.robot_down,
+.robot_right,
+.next_robot_up,
+.next_robot_left,
+.next_robot_down,
+.next_robot_right {
+  width: 40px;
+  height: 40px;
+  color: #c0c0c0;
+  padding-top: 6px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.next_robot_up,
+.next_robot_left,
+.next_robot_down,
+.next_robot_right {
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+}
+
+.robot_up {
+  background-image: url("../picture/Robot/Robot-Up.png");
+}
+
+.robot_left {
+  background-image: url("../picture/Robot/Robot-Left.png");
+}
+
+.robot_down {
+  background-image: url("../picture/Robot/Robot-Down.png");
+}
+
+.robot_right {
+  background-image: url("../picture/Robot/Robot-Right.png");
+}
+
+.next_robot_up {
+  background-image: url("../picture/Robot/Robot-Up.png");
+}
+
+.next_robot_left {
+  background-image: url("../picture/Robot/Robot-Left.png");
+}
+
+.next_robot_down {
+  background-image: url("../picture/Robot/Robot-Down.png");
+}
+
+.next_robot_right {
+  background-image: url("../picture/Robot/Robot-Right.png");
+}
+
+.column_number {
+  font-size: 20px;
+  padding-top: 10px;
+}

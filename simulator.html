@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <script type="text/javascript" src="js/prot.js"></script>
+    <script type="text/javascript" src="js/context-menu.js"></script>
+    <meta charset="utf-8" />
+    <title>花火ロボットシミュレーター</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="css/destyle.css" />
+    <link rel="stylesheet" type="text/css" href="css/prot.css" />
+    <link rel="stylesheet" type="text/css" href="css/form.css" />
+    <link rel="stylesheet" type="text/css" href="css/context-menu.css" />
+  </head>
+
+  <body>
+    <form method="" action="" onsubmit="return false">
+      <span id="turn">
+        <span id="turn-text">ターン</span>
+        <input
+          type="number"
+          min="0"
+          max="1000"
+          id="turn-value"
+          value="0"
+          onchange="drawField()"
+        />
+      </span>
+
+      <span id="field-height">
+        <span id="field-height-text">縦</span>
+        <input
+          type="number"
+          min="2"
+          max="100"
+          id="field-height-value"
+          onchange="drawField()"
+        />
+      </span>
+
+      <span id="field-width">
+        <span id="field-width-text">横</span>
+        <input
+          type="number"
+          min="2"
+          max="100"
+          id="field-width-value"
+          onchange="drawField()"
+        />
+      </span>
+
+      <span id="number-of-robots"> </span>
+      <label class="btn-flat">
+        追加
+        <input type="button" value="追加" onclick="addRobot();" />
+      </label>
+
+      <!-- <input type="submit" id="update-button" value="更新" /> -->
+
+      <label class="btn btn-flat">
+        ファイルの選択
+        <input type="file" id="input-file" accept="application/json"
+      /></label>
+    </form>
+
+    <form id="input-file-form" method="" action="" onsubmit="return false">
+      <label class="btn btn-flat">
+        保存
+        <input
+          type="button"
+          id="save-json"
+          class="btn-border"
+          onclick="saveJSON();"
+          value="保存"
+        />
+      </label>
+    </form>
+
+    <div id="field-table"></div>
+
+    <canvas id="my-canvas" width="1" height="1"></canvas>
+
+    <script type="text/javascript">
+      let turn, width, height;
+      let contextMenuObj = [];
+      let robot = [];
+
+      drawField();
+      const inputElement = document.getElementById("input-file");
+      inputElement.addEventListener("change", handleFiles, false);
+
+      color2html([127, 2, 0]);
+    </script>
+  </body>
+</html>
